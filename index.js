@@ -51,7 +51,7 @@ constructor({ name, color, flavor, origin, continent, price}) {
 
     shoppingList() {
         console.log (
-            `${this.name} has attribute of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${this.price}`
+            `${this.name} has attribute of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${myTropicalFruits.getPrice()}`
         )
     }
 
