@@ -6,5 +6,8 @@
   "repository": "https://github.com/nchristanto/project-javascript-oop",
   "author": "Chris",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
 }
