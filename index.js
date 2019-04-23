@@ -1,5 +1,5 @@
-class Fruit {
-    constructor(name = "Unknown", color, flavors, origins = "Unknown origins" ) {
+class Fruit { // Parent Class 
+    constructor(name = "Unknown", color, flavors, origins = "Unknown origins") {
         this.name = name
         this.color = color
         this.flavors = flavors
@@ -16,7 +16,7 @@ class Fruit {
 
     showDetail() {
         console.log(
-            `${this.name} has the following attributes: color is ${this.color}, is originated from ${this.getOrigins()}, and taste ${this.getFlavors}`
+            `${this.name} has the following attributes: color is ${this.color}, is originated from ${this.getOrigins()}, and taste ${this.getFlavors()}`
         )
 
     }
@@ -47,7 +47,7 @@ console.log(myFruit.getOrigins())
 
 // Extend 
 class TropicalFruit extends Fruit {
-constructor({ name, color, flavors, origins, continent, price}) {
+constructor({ name, color, flavors, origins, continent, price }) {
     // Inherit object using super
     super(name, color, flavors, origins)
     this.continent = continent
@@ -91,3 +91,28 @@ myTropicalFruit.showDetails()
 console.log(myTropicalFruit.getContinent())
 
 console.log(myTropicalFruit.getPrice())
+
+class Berry extends TropicalFruit {
+constructor({ name, color, flavors, origins, continent, price, discount }) {
+    super({ name, color, flavors, origins, continent, price })
+    this.discount = discount
+    }
+}
+
+const myBerries = new Berry ({
+    name: "Strawberry",
+    color: "Red",
+    flavors: [],
+    origins: ["England"],
+    continent: "Europe", 
+    price: 85000, //IDR
+    discount: false
+
+})
+
+
+myBerries.flavors.push("Sweet", "Sour")
+myBerries.origins.push("France")
+console.log(myBerries)
+console.log(myBerries.getPrice())
+
