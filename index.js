@@ -1,4 +1,4 @@
-class Fruits {
+class Fruit {
     constructor(name, color, flavor, origin = "Unknown Origin") {
         this.name = name
         this.color = color
@@ -24,24 +24,24 @@ class Fruits {
 
 // Adding object into array
 const fruitsCollections = []
-const myFruits = new Fruits("Lychee", "Red", "Sweet", "China")
-const myFavoriteFruits = new Fruits ("Durian", "Yellow", "Sweet", "Indonesia")
+const myFruit = new Fruit("Lychee", "Red", "Sweet", "China")
+const myFavoriteFruit = new Fruit ("Durian", "Yellow", "Sweet", "Indonesia")
 
-fruitsCollections.push(myFruits, myFavoriteFruits)
+fruitsCollections.push(myFruit, myFavoriteFruit)
 console.log(fruitsCollections)
 
 // Console.log template string
-myFruits.shop()
+myFruit.shop()
 
 // Access from object 
-console.log(myFruits.getColor())
-console.log(myFruits.getOrigin())
+console.log(myFruit.getColor())
+console.log(myFruit.getOrigin())
 
 
 // ------------------------------------------------------------------------------->
 
 // Extend 
-class TropicalFruits extends Fruits {
+class TropicalFruit extends Fruit {
 constructor({ name, color, flavor, origin, continent, price}) {
     // Inherit object using super
     super(name, color, flavor, origin)
@@ -51,7 +51,7 @@ constructor({ name, color, flavor, origin, continent, price}) {
 
     shoppingList() {
         console.log (
-            `${this.name} has attribute of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${myTropicalFruits.getPrice()}`
+            `${this.name} has attribute of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${myTropicalFruit.getPrice()}`
         )
     }
 
@@ -70,7 +70,7 @@ constructor({ name, color, flavor, origin, continent, price}) {
     }
 }
 
-const myTropicalFruits = new TropicalFruits({
+const myTropicalFruit = new TropicalFruit({
     name: "Pineapple",
     color: "Yellow", 
     flavor: ["Sweet", "Sour"],
@@ -79,10 +79,10 @@ const myTropicalFruits = new TropicalFruits({
     price: 14000 // IDR
 })
 
-console.log(myTropicalFruits)
+console.log(myTropicalFruit)
 
-myTropicalFruits.shoppingList()
+myTropicalFruit.shoppingList()
 
-console.log(myTropicalFruits.getContinent())
+console.log(myTropicalFruit.getContinent())
 
-console.log(myTropicalFruits.getPrice())
+console.log(myTropicalFruit.getPrice())
