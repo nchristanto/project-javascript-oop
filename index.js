@@ -1,5 +1,5 @@
 class Fruit {
-    constructor(name, color, flavor, origin = "Unknown Origin") {
+    constructor(name = "Unknown", color, flavor, origin = "Unknown Origin") {
         this.name = name
         this.color = color
         this.flavor = flavor
@@ -8,7 +8,7 @@ class Fruit {
 
     shop() {
         console.log(
-            `${this.name} has attribute of ${this.color}, is from ${this.origin}, and taste ${this.flavor}`
+            `${this.name} has attributes of ${this.color}, is from ${this.origin}, and taste ${this.flavor}`
         )
 
     }
@@ -51,7 +51,7 @@ constructor({ name, color, flavor, origin, continent, price}) {
 
     shoppingList() {
         console.log (
-            `${this.name} has attribute of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${myTropicalFruit.getPrice()}`
+            `${this.name} has attributes of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${myTropicalFruit.getPrice()}`
         )
     }
 
