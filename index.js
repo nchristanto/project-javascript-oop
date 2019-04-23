@@ -1,14 +1,22 @@
 class Fruit {
-    constructor(name = "Unknown", color, flavor, origin = "Unknown Origin") {
+    constructor(name = "Unknown", color, flavors, origins = "Unknown origins" ) {
         this.name = name
         this.color = color
-        this.flavor = flavor
-        this.origin = origin
+        this.flavors = flavors
+        this.origins = origins
     }
 
-    shop() {
+    getOrigins() {
+        return this.origins.join(', ')
+    }
+
+    getFlavors() {
+        return this.flavors.join(', ')
+    }
+
+    showDetail() {
         console.log(
-            `${this.name} has attributes of ${this.color}, is from ${this.origin}, and taste ${this.flavor}`
+            `${this.name} has the following attributes: color is ${this.color}, is originated from ${this.getOrigins()}, and taste ${this.getFlavors}`
         )
 
     }
@@ -17,41 +25,38 @@ class Fruit {
         return this.color
     }
 
-    getOrigin () {
-        return this.origin
-    }
 }
 
 // Adding object into array
-const fruitsCollections = []
-const myFruit = new Fruit("Lychee", "Red", "Sweet", "China")
-const myFavoriteFruit = new Fruit ("Durian", "Yellow", "Sweet", "Indonesia")
+const fruitsCollection = []
+const myFruit = new Fruit("Lychee", "Red", ["Sweet", "Sour"], ["China", "Taiwan"])
+const myFavoriteFruit = new Fruit ("Durian", "Yellow", ["Sweet"], ["Indonesia", "Malaysia"])
 
-fruitsCollections.push(myFruit, myFavoriteFruit)
-console.log(fruitsCollections)
+fruitsCollection.push(myFruit, myFavoriteFruit)
+console.log(fruitsCollection)
 
 // Console.log template string
-myFruit.shop()
+myFruit.showDetail()
 
 // Access from object 
 console.log(myFruit.getColor())
-console.log(myFruit.getOrigin())
+console.log(myFruit.getOrigins())
 
 
 // ------------------------------------------------------------------------------->
 
 // Extend 
 class TropicalFruit extends Fruit {
-constructor({ name, color, flavor, origin, continent, price}) {
+constructor({ name, color, flavors, origins, continent, price}) {
     // Inherit object using super
-    super(name, color, flavor, origin)
+    super(name, color, flavors, origins)
     this.continent = continent
     this.price = price
     }
 
-    shoppingList() {
+    showDetails() {
         console.log (
-            `${this.name} has attributes of ${this.color}, is from ${this.origin}, in ${this.continent}, taste ${this.flavor}, and cost ${myTropicalFruit.getPrice()}`
+            `${this.name} has the following attributes: color is ${this.color}, is originated from ${this.getOrigins()} in ${this.continent}, and taste ${this.getFlavors()}`
         )
     }
 
@@ -73,15 +78,15 @@ constructor({ name, color, flavor, origin, continent, price}) {
 const myTropicalFruit = new TropicalFruit({
     name: "Pineapple",
     color: "Yellow", 
-    flavor: ["Sweet", "Sour"],
-    origin: ["Costa Rica", "Brazil", "Philippines"],
+    flavors: ["Sweet", "Sour"],
+    origins: ["Costa Rica", "Brazil", "Philippines"],
     continent: "South America",
     price: 14000 // IDR
 })
 
 console.log(myTropicalFruit)
 
-myTropicalFruit.shoppingList()
+myTropicalFruit.showDetails()
 
 console.log(myTropicalFruit.getContinent())
 
